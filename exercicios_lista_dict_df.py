@@ -133,6 +133,7 @@ df_vendas.groupby("filial")["vendas"].max().sort_values()
 # ===========================================================
 # PARTE 1 – Estrutura lista + dicionário
 # ===========================================================
+import pandas as pd
 
 dados_list_dict = [{
     "Column A":[1, 2, 3],
@@ -163,9 +164,11 @@ dic["Column C"]
 
 # 1. Converta dados_list_dict[0] em um DataFrame chamado df1
 df1 = pd.DataFrame(dados_list_dict[0])
+print(df1)
 # 2. Mostre:
 #    - shape
 #    - tipos das colunas
+type(df1)
 # 3. Calcule:
 #    - soma de cada coluna
 #    - média de cada coluna
@@ -184,7 +187,14 @@ df1 = pd.DataFrame(dados_list_dict[0])
 # 3. Filtre linhas onde Total > 10
 
 # RESOLVA AQUI:
+total = df1.sum()
+print(total)
 
+media = df1.mean()
+print(media)
+
+filtro = df1["total"] > 10
+print(df1[filtro])
 
 
 # -----------------------------------------------------------
@@ -202,11 +212,11 @@ df1 = pd.DataFrame(dados_list_dict[0])
 # orient="list":
 #   Cada chave representa uma coluna.
 #   Estrutura colunar, útil para reconstruir DataFrame.
+
+# RESOLVA AQUI:
 df1.to_dict()
 df1.to_dict(orient="records")
 df1.to_dict(orient="list")
-# RESOLVA AQUI:
-
 
 # -----------------------------------------------------------
 # EXERCÍCIO 5 – Trabalhando com lista
