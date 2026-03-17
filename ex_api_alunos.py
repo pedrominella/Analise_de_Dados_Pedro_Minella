@@ -55,6 +55,7 @@ response.status_code
 dados = response.json()
 pd.DataFrame([dados])
 
+
 # ===========================================================
 # PARTE 3 – BRASILAPI
 # ===========================================================
@@ -100,8 +101,15 @@ df = pd.DataFrame(dados)
 url = "https://servicodados.ibge.gov.br/api/v1/localidades/aglomeracoes-urbanas/00301"
 response = requests.get(url)
 response.status_code
-dados = response.json()[0]["municipios"]
-df = pd.DataFrame(dados)
+# transforma em json
+dados = response.json()
+# pega o primeiro elemento da lista
+dados = dados[0]
+# pega a chave municipio
+dados = dados["municipios"]
+# transformar em df
+df = pd.json_normalize(dados)
+print(df)
 
 # ===========================================================
 # PARTE 5 – IPEA DATA
@@ -119,7 +127,13 @@ df = pd.DataFrame(dados)
 # 4. Transforme em DataFrame.
 # """
 # RESOLVA AQUI:
-
+url = "http://www.ipeadata.gov.br/api/odata4/Metadados"
+response = requests.get(url)
+response.status_code
+dados = response.json()
+dados = dados["value"]
+df = pd.DataFrame(dados)
+df = df.loc[:,["SERCODIGO", "SERNOME", "SERCOMENTARIO"]]
 
 
 # ===========================================================
@@ -145,7 +159,17 @@ df = pd.DataFrame(dados)
 # 4. Plote gráfico de linha.
 # """
 # RESOLVA AQUI:
-
+codigo = 4189
+url = f"https://api.bcb.gov.br/dados/serie/bcdata.sgs.{codigo}/dados"
+params = {
+"formato": "json",
+"dataInicial": "01/01/2024",
+"dataFinalCotacao": "31/12/2024"
+}
+response = requests.get(url, params=params)
+response.status_code
+dados = response.json()
+df = pd.DataFrame(dados)
 
 
 # ===========================================================
