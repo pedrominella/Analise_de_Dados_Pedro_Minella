@@ -6,7 +6,7 @@ frutas = ["maça", "banana", "laranja", "uva"]
 
 # 2.	Imprima o primeiro e o último elemento da lista.
 (print(frutas[0]))
-(print(frutas[-1]))
+print(frutas[-1])
 
 # 3.	Adicione a fruta "manga" ao final da lista.
 frutas.append("manga")
@@ -86,6 +86,7 @@ for nome in nomes:
 nomes_maiusculos = []
 for nome in nomes:
     nomes_maiusculos.append(nome.upper())
+    
 
 print(nomes_maiusculos)
 
