@@ -42,13 +42,13 @@
 
 ##### 7 - como consumir um arquivo csv no DataFrame?
 
-# para consumir um arquivo csv no DataFrame, podemos usar a função pd.read_csv()
+# para consumir um arquivo csv no DataFrame, podemos usar a função pd.read_csv("")
 # da biblioteca pandas,
 # passando o caminho do arquivo csv como argumento. (fica roxo)
 
 ##### 8 - como consumir um arquivo excel no DataFrame?
 
-# para consumir um arquivo excel no DataFrame, podemos usar a função pd.read_excel()
+# para consumir um arquivo excel no DataFrame, podemos usar a função pd.read_excel("")
 # da biblioteca pandas,
 # passando o caminho do arquivo excel como argumento. (fica roxo)
 
