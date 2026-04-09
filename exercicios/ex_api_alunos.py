@@ -127,13 +127,17 @@ print(df)
 # 4. Transforme em DataFrame.
 # """
 # RESOLVA AQUI:
+import requests
+import pandas as pd
+
+
 url = "http://www.ipeadata.gov.br/api/odata4/Metadados"
 response = requests.get(url)
 response.status_code
 dados = response.json()
 dados = dados["value"]
 df = pd.DataFrame(dados)
-df = df.loc[:,["SERCODIGO", "SERNOME", "SERCOMENTARIO"]]
+df_dados = df.loc[:,["SERCODIGO", "SERNOME", "SERCOMENTARIO"]]
 
 
 # ===========================================================
