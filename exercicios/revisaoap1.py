@@ -110,5 +110,5 @@ media_salarial = df.loc["salario"].mean()
 
 # d) Filtre apenas quem ganha acima de 2500.
 funcionarios_acima_2500 = {x: funcionarios[x] for x in funcionarios if funcionarios[x]["salario"] > 2500}
-print(funcionarios_acima_2500)1
+print(funcionarios_acima_2500)
 
